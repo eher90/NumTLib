@@ -1,4 +1,6 @@
 def tableOfPrimeAndComposites(n: int):
+    """Gives a Table of numbers that are prime or composite from 1 to n"""
+
     print("Prime      Composite")
     print("____________________")
     
@@ -14,7 +16,11 @@ def tableOfPrimeAndComposites(n: int):
         else:
             print(f"\t\t{i}")
 
+
+
 def eucledianAlgorithmExplained(a: int, b: int):
+    """Explains the Eucledian Algorithm between two integers a and b step by step"""
+
     aInitial = a
     bInitial = b
 
@@ -29,7 +35,10 @@ def eucledianAlgorithmExplained(a: int, b: int):
     
     print(f"The greatest common factor of {aInitial} and {bInitial} is {a}")
 
-def eucledianAlgorithm(a: int, b: int):
+
+
+def gcd(a: int, b: int):
+        """Gcd of two integers a and b"""
         while b > 0:
             r = a % b
             a = b
@@ -38,5 +47,12 @@ def eucledianAlgorithm(a: int, b: int):
         return a
 
 
-eucledianAlgorithmExplained(5797, 13020)
-print(eucledianAlgorithm(5797, 13020))
+# A Table of all possible combiantions of two numbers and the GCD
+
+# def gcdTable(n: int):
+#     print("     Num 1        Num 2        GCD")
+#     print("----------------------------------")
+
+#     for i in range(1, n):
+#         for j in range(1, n):
+#             print(f"   {i:>4}           {j:>4}        {gcd(i, j):>4}")
