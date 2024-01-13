@@ -59,8 +59,28 @@ def lcm(a: int, b: int):
 # However, we now know that addind and subtracting fractions requires the denomimator to be a common form for both fractions.
 # As such, the lcm can help us determine a common number for both denomimators and do calculators for the numerators and final result.
 
+def fractionOperation(x, y, a, b, operation):
+    d = lcm(y, b)
 
+    if operation == "+":
+        # x/y + a/b = n/d
+        n = int(((d/y)*x) + ((d/b)*a))
 
+        print(f"{x}/{y} + {a}/{b} = {n}/{d}")
+
+    elif operation == "-":
+        # x/y - a/b = n/d
+        n = int(((d/y)*x) - ((d/b)*a))
+
+        print(f"{x}/{y} - {a}/{b} = {n}/{d}")
+
+    elif operation == "*":
+        # x/y * a/b = x*a/y*b
+        print(f"{x}/{y} * {a}/{b} = {x*a}/{y*b}")
+    
+    elif operation == "/":
+        # x/y / a/b = x*b/y*a
+        print(f"{x}/{y} / {a}/{b} = {x*b}/{y*a}")
 
 
 
