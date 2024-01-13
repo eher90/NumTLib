@@ -38,13 +38,59 @@ def eucledianAlgorithmExplained(a: int, b: int):
 
 
 def gcd(a: int, b: int):
-        """Gcd of two integers a and b"""
+        """Greatest Common Divisor of two integers a and b"""
         while b > 0:
             r = a % b
             a = b
             b = r
 
         return a
+
+def lcm(a: int, b: int):
+    """Least Common Multiple of two integers a and b"""
+    return int(a * (b/(gcd(a, b))))
+
+
+
+# Applications of these functions
+# ---------- Fraction Calculator ----------
+#
+# We know that multiplying and dividing fractions are pretty straight forward.
+# However, we now know that addind and subtracting fractions requires the denomimator to be a common form for both fractions.
+# As such, the lcm can help us determine a common number for both denomimators and do calculators for the numerators and final result.
+
+def fractionOperation(x, y, a, b, operation):
+    d = lcm(y, b)
+
+    if operation == "+":
+        # x/y + a/b = n/d
+        n = int(((d/y)*x) + ((d/b)*a))
+
+        print(f"{x}/{y} + {a}/{b} = {n}/{d}")
+
+    elif operation == "-":
+        # x/y - a/b = n/d
+        n = int(((d/y)*x) - ((d/b)*a))
+
+        print(f"{x}/{y} - {a}/{b} = {n}/{d}")
+
+    elif operation == "*":
+        # x/y * a/b = x*a/y*b
+        print(f"{x}/{y} * {a}/{b} = {x*a}/{y*b}")
+    
+    elif operation == "/":
+        # x/y / a/b = x*b/y*a
+        print(f"{x}/{y} / {a}/{b} = {x*b}/{y*a}")
+
+
+
+
+
+
+
+
+
+
 
 
 # A Table of all possible combiantions of two numbers and the GCD
