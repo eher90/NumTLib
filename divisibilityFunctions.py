@@ -38,13 +38,39 @@ def eucledianAlgorithmExplained(a: int, b: int):
 
 
 def gcd(a: int, b: int):
-        """Gcd of two integers a and b"""
+        """Greatest Common Divisor of two integers a and b"""
         while b > 0:
             r = a % b
             a = b
             b = r
 
         return a
+
+def lcm(a: int, b: int):
+    """Least Common Multiple of two integers a and b"""
+    return int(a * (b/(gcd(a, b))))
+
+
+
+# Applications of these functions
+# ---------- Fraction Calculator ----------
+#
+# We know that multiplying and dividing fractions are pretty straight forward.
+# However, we now know that addind and subtracting fractions requires the denomimator to be a common form for both fractions.
+# As such, the lcm can help us determine a common number for both denomimators and do calculators for the numerators and final result.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # A Table of all possible combiantions of two numbers and the GCD
