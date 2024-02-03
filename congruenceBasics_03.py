@@ -65,3 +65,53 @@ def reducedResidueClass(n: int):
 # In Python, the issue is resolved and as such, the calculations can be done under the hood.
 #
 
+# We can do modular exponeniation as well. 
+def mod_exp(base: int, exponent: int, modulus: int):
+
+    # Check if exponent is 0 as n**0 = 1
+    if exponent == 0:
+        return 1
+
+    result = 1
+    base = base % modulus # Check if base >= modulus for overcounting
+
+    while exponent > 0: 
+        if exponent % 2 == 1: # Accounting the number of times of base ^ 1
+            result = (result * base) % modulus
+        exponent = exponent // 2
+        base = (base * base) % modulus
+
+    return result
+
+
+
+
+# This is extremely useful as we can find the order of a congruence class [n] if
+# - a^n === b mod(m) satisfies gcd(a, m) = 1
+# - Order of a is the smallest possible integer n such that a^n === 1 
+
+# Ex: Order of 5 in congruence class 9 is 6 as 5^6 === 1 mod 9
+
+# We can do his by using the mod_exp and gcd()
+
+
+def orderOfEachElementInClass(n: int):
+    orders = {}
+
+    for i in range(1, n):
+        if gcd(i, n) == 1:
+            for j in range(1, n):
+                if mod_exp(i, j, n) == 1:
+                    orders[i] = j
+                    break
+    
+    return orders # In form of a: b where a is element of element class and b is a^b === 1 mod n
+
+
+# We can also find the primitive root. This is when the order of an element of congruence class = phi(n)
+
+# Another interesting thing is that there are exactly phi(phi(n)) primitive roots mod n.
+
+
+
+
